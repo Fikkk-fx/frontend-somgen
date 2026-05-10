@@ -1,0 +1,53 @@
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusIcon {
+  color: var(--cyan);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.tagline {
+  color: var(--text-secondary);
+}
+
+.highlight {
+  color: var(--violet);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .left {
+    display: none;
+  }
+  .statusbar {
+    justify-content: center;
+  }
+}

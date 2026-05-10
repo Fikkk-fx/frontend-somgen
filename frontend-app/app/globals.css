@@ -1,0 +1,168 @@
+/* ============================================
+   SOMGEN WAR ROOM — Design System
+   Dark Cosmic + Comic Book Agentic Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@300;400;500;600;700;900&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --bg-primary: #060812;
+  --bg-secondary: #0c1024;
+  --bg-card: rgba(15, 20, 45, 0.6);
+  --bg-glass: rgba(15, 20, 45, 0.4);
+  --bg-surface: rgba(10, 14, 32, 0.85);
+
+  --cyan: #00f2ff;
+  --yellow: #ffea00;
+  --red: #ff0055;
+  --violet: #8b5cf6;
+  --emerald: #10b981;
+  --gold: #f59e0b;
+
+  --gradient-cyan: linear-gradient(135deg, #00f2ff, #0ea5e9);
+  --gradient-red: linear-gradient(135deg, #ff0055, #f43f5e);
+  --gradient-violet: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  --gradient-emerald: linear-gradient(135deg, #10b981, #34d399);
+  --gradient-gold: linear-gradient(135deg, #f59e0b, #fbbf24);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.4);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 242, 255, 0.3);
+
+  --font-heading: 'Bangers', cursive;
+  --font-body: 'Outfit', sans-serif;
+  --font-accent: 'Permanent Marker', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --sidebar-width: 280px;
+  --topbar-height: 60px;
+  --statusbar-height: 40px;
+  --terminal-height: 80px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Halftone Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* App Layout */
+.app-layout {
+  display: grid;
+  grid-template-rows: var(--topbar-height) 1fr var(--statusbar-height);
+  grid-template-columns: var(--sidebar-width) 1fr;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 2;
+}
+
+/* Particle Canvas */
+#particle-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, var(--yellow), var(--red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Pulse */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(0, 242, 255, 0.5); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes typing {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+  70% { transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 255, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 242, 255, 0.4); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 72px; }
+}
+
+@media (max-width: 600px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+  :root { --sidebar-width: 0px; }
+}

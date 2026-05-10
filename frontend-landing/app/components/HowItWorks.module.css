@@ -1,0 +1,162 @@
+.howItWorks {
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.step {
+  flex: 1;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.connector {
+  position: absolute;
+  top: 40px;
+  right: -10%;
+  width: 50%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+
+.connectorLine {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+}
+
+.stepNumber {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.stepNumber span {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.step:hover .stepNumber {
+  transform: scale(1.1);
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepIcon {
+  font-size: 2.5rem;
+  margin-bottom: 4px;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.stepDesc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+/* CTA Card */
+.cta {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaCard {
+  padding: 60px;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  border-color: rgba(0, 242, 255, 0.15) !important;
+}
+
+.ctaCard::before {
+  background: var(--gradient-cyan) !important;
+  opacity: 1 !important;
+}
+
+.ctaContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+}
+
+.ctaText {
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .connector {
+    display: none;
+  }
+
+  .step {
+    max-width: 100%;
+  }
+
+  .ctaCard {
+    padding: 36px;
+  }
+
+  .ctaTitle {
+    font-size: 1.6rem;
+  }
+}

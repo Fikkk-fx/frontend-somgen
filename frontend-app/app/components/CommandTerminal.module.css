@@ -1,0 +1,84 @@
+.terminal {
+  background: #000;
+  border-top: 2px solid var(--border-subtle);
+  height: var(--terminal-height);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.glowLine {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.prompt {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.inputForm {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-accent);
+  font-size: 1.5rem;
+  outline: none;
+  height: 100%;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.submitBtn {
+  background: var(--text-primary);
+  color: #000;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  padding: 8px 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--cyan);
+  box-shadow: 0 0 15px var(--cyan);
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .input {
+    font-size: 1.2rem;
+  }
+  .submitBtn {
+    padding: 6px 16px;
+    font-size: 1rem;
+  }
+}
