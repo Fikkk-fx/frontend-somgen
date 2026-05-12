@@ -13,17 +13,33 @@ const LogoIcon = () => (
   </svg>
 );
 
-export default function TopBar({ missionCount = 0 }) {
+const modeColors = {
+  AGGRESSIVE: "#ff0055",
+  NORMAL: "#00f2ff",
+  SAFETY: "#10b981",
+};
+
+export default function TopBar({ missionCount = 0, currentMode }) {
   return (
     <header className={styles.topbar}>
       <a href="#" className={styles.logo}>
         <span className={styles.logoIcon}><LogoIcon /></span>
-        <span className={styles.logoText}>SOMGEN WAR ROOM</span>
+        <span className={styles.logoText}>SOMGEN</span>
+        <span className={styles.logoBadge}>PREDATOR</span>
       </a>
       <div className={styles.right}>
+        {currentMode && (
+          <div
+            className={styles.modeBadge}
+            style={{ "--badge-color": modeColors[currentMode] || "#00f2ff" }}
+          >
+            <div className={styles.modeDot}></div>
+            {currentMode}
+          </div>
+        )}
         <div className={styles.network}>
           <div className={styles.pulse}></div>
-          Somnia L1 • Connected
+          Somnia L1
         </div>
         <div className={styles.missionCount}>
           MISSIONS: {missionCount}

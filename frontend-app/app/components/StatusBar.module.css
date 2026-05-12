@@ -2,31 +2,52 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  background: var(--bg-surface);
+  padding: 0 16px;
+  height: var(--statusbar-height);
+  background: var(--bg-glass);
   border-top: 1px solid var(--border-subtle);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 10;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .statusItem {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .statusIcon {
   color: var(--cyan);
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dataLabel {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+}
+
+.dataValue {
+  font-weight: 700;
+  font-size: 0.7rem;
 }
 
 .right {
@@ -36,18 +57,15 @@
 
 .tagline {
   color: var(--text-secondary);
+  letter-spacing: 1px;
 }
 
 .highlight {
   color: var(--violet);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @media (max-width: 600px) {
-  .left {
-    display: none;
-  }
-  .statusbar {
-    justify-content: center;
-  }
+  .left { display: none; }
+  .statusbar { justify-content: center; }
 }

@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  background: var(--bg-surface);
+  padding: 0 16px;
+  height: var(--topbar-height);
+  background: var(--bg-glass);
   border-bottom: 1px solid var(--border-subtle);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 10;
 }
 
@@ -19,53 +20,86 @@
 
 .logoIcon svg {
   color: var(--cyan);
+  width: 18px; height: 18px;
 }
 
 .logoText {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 2px;
-  color: var(--text-primary);
-  text-shadow: 2px 2px 0 rgba(255, 0, 85, 0.4);
+  color: var(--yellow);
+  text-shadow: 2px 2px 0px rgba(255, 0, 85, 0.5);
+}
+
+.logoBadge {
+  font-family: var(--font-accent);
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1px 6px;
+  border-radius: 3px;
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+}
+
+.modeBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--badge-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 30%, transparent);
+  color: var(--badge-color);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+.modeDot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--badge-color);
+  box-shadow: 0 0 6px var(--badge-color);
+  animation: pulse 2s infinite;
 }
 
 .network {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
+  gap: 6px;
+  font-size: 0.7rem;
   color: var(--text-secondary);
   font-family: var(--font-mono);
 }
 
 .pulse {
-  width: 8px;
-  height: 8px;
+  width: 6px; height: 6px;
   border-radius: 50%;
   background: var(--emerald);
-  box-shadow: 0 0 10px var(--emerald);
+  box-shadow: 0 0 8px var(--emerald);
   animation: pulse 2s infinite;
 }
 
 .missionCount {
-  background: rgba(0, 242, 255, 0.1);
-  border: 1px solid rgba(0, 242, 255, 0.3);
+  background: rgba(0, 242, 255, 0.08);
+  border: 1px solid rgba(0, 242, 255, 0.2);
   color: var(--cyan);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 14px;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 1px;
+  font-family: var(--font-mono);
 }
 
-@media (max-width: 600px) {
-  .network {
-    display: none;
-  }
+@media (max-width: 700px) {
+  .network, .logoBadge { display: none; }
+  .modeBadge { font-size: 0.6rem; padding: 2px 8px; }
 }

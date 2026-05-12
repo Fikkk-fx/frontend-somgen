@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import styles from "./ActionWord.module.css";
 
@@ -8,7 +10,7 @@ export default function ActionWord({ text, x, y, onComplete }) {
     const timer = setTimeout(() => {
       setVisible(false);
       if (onComplete) onComplete();
-    }, 1000); // matches animation duration
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -16,7 +18,7 @@ export default function ActionWord({ text, x, y, onComplete }) {
   if (!visible) return null;
 
   return (
-    <div 
+    <div
       className={styles.actionWord}
       style={{ left: x, top: y }}
     >
